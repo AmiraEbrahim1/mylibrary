@@ -112,20 +112,14 @@ class LoginScreen extends StatelessWidget {
                                 fontSize: 17
                               ),),
                               TextButton(
-                                // onPressed: (){
-                                //   Navigator.push(context,MaterialPageRoute(builder:(context) =>Reset()));
-                                // },
-                                onPressed: () {  },
-                                child:TextButton(
-                                  onPressed: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Reset()));
-                                  },
-                                  child: const  Text('Forget Password?',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17
-                                    ),
+                                onPressed: (){
+                                  Navigator.push(context,MaterialPageRoute(builder:(context) =>Reset()));
+                                },
+                                child:const  Text('Forget Password?',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17
                                   ),
                                 ),
                               ),

@@ -25,7 +25,7 @@ class _ResetConfirmState extends State<ResetConfirm> {
         leading:IconButton(
           icon: const Icon(Icons.arrow_back,color:Color.fromRGBO(168, 146, 84,1) ,),
           onPressed: (){
-            Navigator.pop(context,MaterialPageRoute(builder:(context) =>const Reset()));
+            Navigator.pop(context);
           },) ,
       ),
       body: SingleChildScrollView(
@@ -91,7 +91,7 @@ class _ResetConfirmState extends State<ResetConfirm> {
 
                     ),
                   ),
-                  SizedBox(height:30),
+                  const SizedBox(height:30),
                   Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
@@ -101,7 +101,7 @@ class _ResetConfirmState extends State<ResetConfirm> {
                       child: TextButton(
                           onPressed: (){
                             if(formKey.currentState!.validate()){
-                              print('Password reset');
+                              Navigator.push(context,MaterialPageRoute(builder:(context) =>const LoginScreen()));
                             }
                           },
                           child:const Text(' Reset',style: TextStyle(

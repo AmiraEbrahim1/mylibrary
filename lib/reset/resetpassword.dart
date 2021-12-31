@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mylibrary/modules/login/login.dart';
 import 'package:mylibrary/reset/reset_confirm.dart';
 class Reset extends StatefulWidget {
   const Reset({Key? key}) : super(key: key);
@@ -24,7 +23,7 @@ class _ResetState extends State<Reset> {
          leading:IconButton(
            icon: const Icon(Icons.arrow_back,color:Color.fromRGBO(168, 146, 84,1) ,),
            onPressed: (){
-             Navigator.pop(context,MaterialPageRoute(builder:(context) =>const LoginScreen()));
+             Navigator.pop(context);
            },) ,
       ),
       body: SingleChildScrollView(
@@ -81,19 +80,14 @@ class _ResetState extends State<Reset> {
                   child: TextButton(
                       onPressed: (){
                         if(formKey.currentState!.validate()){
-                          print('Password reset');
+                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const ResetConfirm()));
                         }
                       },
-                      child:TextButton(
-                        onPressed: (){
-                          Navigator.pop(context,MaterialPageRoute(builder:(context) =>const ResetConfirm()));//???
-                        },
-                        child: const Text(' Reset',style: TextStyle(
-                            fontSize: 25,
-                            color: Color.fromRGBO(168, 146, 84,1)
-                        )
-                          ,),
-                      ))
+                      child:const Text(' Reset',style: TextStyle(
+                          fontSize: 25,
+                          color: Color.fromRGBO(168, 146, 84,1)
+                      )
+                        ,))
               ),
     ]
             ),
