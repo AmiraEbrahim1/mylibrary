@@ -43,8 +43,8 @@ class _Detail5State extends State<Detail5> {
             runSpacing: 1,
             children: List.generate(select5.length, (index){
               return Container(
-                width:(MediaQuery.of(context).size.width-3)/3,
-                height:(MediaQuery.of(context).size.width-3)/3 ,
+                width:(MediaQuery.of(context).size.width-3)/2,
+                height:(MediaQuery.of(context).size.width-3)/2 ,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(select5[index]),

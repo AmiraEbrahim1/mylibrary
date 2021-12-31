@@ -35,23 +35,25 @@ class _Detail1State extends State<Detail1> {
       ),
       body: ListView(
         children: [
+
           Wrap(
-            spacing: 1,
-            runSpacing: 1,
-            children: List.generate(select.length, (index){
-              return Container(
-                width:(MediaQuery.of(context).size.width-3)/3,
-                height:(MediaQuery.of(context).size.width-3)/3 ,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(select[index]),
-                      fit: BoxFit.cover,
-                    )
-                ),
-              );
-            }
+              spacing: 1,
+              runSpacing: 1,
+              children: List.generate(select.length, (index){
+                return Container(
+                  width:(MediaQuery.of(context).size.width-3)/2,
+                  height:(MediaQuery.of(context).size.width-3)/2 ,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(select[index]),
+                        fit: BoxFit.cover,
+                      )
+                  ),
+                );
+              }
+              ),
             ),
-          ),
+
         ],
       ),
     );

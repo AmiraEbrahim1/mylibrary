@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mylibrary/contactus/contactus.dart';
+import 'package:mylibrary/rateus/rate.dart';
 // import 'package:home_page/screens/rate_us.dart';
 class AboutUs extends StatelessWidget {
   @override
@@ -75,15 +77,20 @@ SizedBox(height: 5,),
                         padding: EdgeInsets.all(10),
                         color: Colors.white,
                         width: 130,
-                        height: 200,
+                        height: 250,
                         child:
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
 
-                            Text("About Us", style: TextStyle(fontSize: 20,
-                                color: Color.fromRGBO(168, 146, 84,1),
-                                fontWeight: FontWeight.bold),),
+                            TextButton(
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> AboutUs()));
+                              },
+                              child: Text("About Us", style: TextStyle(fontSize: 20,
+                                  color: Color.fromRGBO(168, 146, 84,1),
+                                  fontWeight: FontWeight.bold),),
+                            ),
 
                             TextButton(onPressed: () {
                               // Navigator.push(
@@ -92,12 +99,19 @@ SizedBox(height: 5,),
                               //       builder: (context) => RateUs(),
                               //     ));
                             },
-                                child: Text("Rate us", style: TextStyle(
-                                    fontSize: 20, color: Colors.black),)),
+                                child: TextButton(
+                                  onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const RateUs()));
+                                  },
+                                  child: Text("Rate us", style: TextStyle(
+                                      fontSize: 20, color: Colors.black),),
+                                )),
                             Divider(
                               thickness: 2, color: Colors.black12, height: 3,),
 
-                            TextButton(onPressed: () {},
+                            TextButton(onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> ContactUsView()));
+                            },
                                 child: Text("Contact us", style: TextStyle(
                                     fontSize: 20, color: Colors.black),)),
                             Divider(

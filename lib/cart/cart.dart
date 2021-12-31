@@ -79,7 +79,7 @@ class _CartViewState extends State<CartView> {
               height: 20,
             ),
             Text(
-              "العادات السبع للناس الاكثر فعالية",
+              "صاحب الظل الطويل",
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold
@@ -92,42 +92,6 @@ class _CartViewState extends State<CartView> {
               children: [
                 Column(
                   children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.black,
-                          radius: 20,
-                          child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                currentIndex++;
-                              });
-                            },
-                            icon: Icon(Icons.add,color:Color.fromRGBO(168, 146, 84,1) ,),
-                          ),
-                        ),
-                        SizedBox(width: 8),
-                        Text(
-                          "$currentIndex",
-                          // style: TextStyle(color: Colors.white),
-                        ),
-                        SizedBox(width: 8),
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundColor: Colors.black,
-                          child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                currentIndex--;
-                              });
-                            },
-                            icon: Icon(Icons.remove,color: Color.fromRGBO(168, 146, 84,1),),
-                          ),
-                        ),
-
-                      ],
-                    ),
-
                     SizedBox(height: 30,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 0.0),
@@ -183,7 +147,7 @@ class _CartViewState extends State<CartView> {
                     height: 150,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('images/bookt4.jpg'))
+                            image: AssetImage('images/bookr1.jpg'))
                     )
                 ),
               ],

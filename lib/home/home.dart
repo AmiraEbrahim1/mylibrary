@@ -194,13 +194,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   ));
 
             }),
-            // ListTile(title: const Text("Notifications",style: TextStyle(fontSize: 20, color: Colors.black) ),onTap: (){
-            //   Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (context) => Notifications(),
-            //       ));
-            // }),
+            ListTile(title: const Text("ContacUs",style: TextStyle(fontSize: 20, color: Colors.black) ),onTap: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ContactUsView(),
+                  ));
+            }),
+            ListTile(title: const Text("Notifications",style: TextStyle(fontSize: 20, color: Colors.black) ),onTap: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ContactUsView(),
+                  ));
+            }),
           ],
         ),
       ),
@@ -213,11 +220,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         actions:[
-          const Image(image: AssetImage('images/bg.png')),
-          const SizedBox(width: 30,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child:IconButton(icon:const Icon(Icons.bookmarks_sharp,size: 25,color: Color.fromRGBO(168, 146, 84,1),),
+            child:IconButton(icon:const Icon(Icons.bookmarks_sharp,size: 20,color: Color.fromRGBO(168, 146, 84,1),),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> MyBooksView()));
               },
@@ -225,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child:IconButton(icon:const Icon(Icons.shopping_cart,size: 25,color: Color.fromRGBO(168, 146, 84,1),),
+            child:IconButton(icon:const Icon(Icons.shopping_cart,size: 23,color: Color.fromRGBO(168, 146, 84,1),),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const CartView()));
               },
@@ -399,7 +404,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   InkWell(
                     onTap: (){
-                      // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DetailsView()));
+                       Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DetailsView()));
                     },
                     child: Container(
                         width: 150,
@@ -557,7 +562,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(width: 20,),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DetailsView()));
                     },
                     child: Container(
                         width: 150,

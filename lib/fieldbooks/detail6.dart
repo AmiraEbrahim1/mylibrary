@@ -18,7 +18,7 @@ class _Detail6State extends State<Detail6> {
       appBar: AppBar(
         centerTitle: true,
         title:const Text(
-          "Human developement",
+          "Horror",
           style: TextStyle(fontSize: 18,color: Color.fromRGBO(168, 146, 84,1)),
         ),
         leading: IconButton(
@@ -35,23 +35,24 @@ class _Detail6State extends State<Detail6> {
       ),
       body: ListView(
         children: [
-          Wrap(
-            spacing: 1,
-            runSpacing: 1,
-            children: List.generate(select6.length, (index){
-              return Container(
-                width:(MediaQuery.of(context).size.width-3)/3,
-                height:(MediaQuery.of(context).size.width-3)/3 ,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(select6[index]),
-                      fit: BoxFit.cover,
-                    )
-                ),
-              );
-            }
+
+             Wrap(
+              spacing: 1,
+              runSpacing: 1,
+              children: List.generate(select6.length, (index){
+                return Container(
+                  width:(MediaQuery.of(context).size.width-3)/2,
+                  height:(MediaQuery.of(context).size.width+3)/2,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(select6[index]),
+                        fit: BoxFit.cover,
+                      )
+                  ),
+                );
+              }
+              ),
             ),
-          ),
         ],
       ),
     );

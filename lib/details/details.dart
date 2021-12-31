@@ -36,7 +36,7 @@ class DetailsView extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                    'images/bookt4.jpg'
+                    'images/bookr1.jpg'
                       ),
                 ),
               ),
@@ -45,7 +45,7 @@ class DetailsView extends StatelessWidget {
           SizedBox(height: 10),
           const Center(
             child: Text(
-              'العادات السبع للناس الاكثر فعالية',
+              'صاحب الظل الطويل',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
