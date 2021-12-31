@@ -36,7 +36,7 @@ class _MyBooksViewState extends State<MyBooksView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: ListView.builder(
+      body: hasBooks ? ListView.builder(
         itemCount: 1,
         itemBuilder: (context, index) => ListTile(
           leading: Image.asset('images/bookr1.jpg'),
@@ -45,7 +45,7 @@ class _MyBooksViewState extends State<MyBooksView> {
             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> PDFView()));
           },
         ),
-      ),
+      ) : Center(child: Text('No Books!')),
     );
   }
 }
