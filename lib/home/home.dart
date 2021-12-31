@@ -56,7 +56,17 @@ class _HomeScreenState extends State<HomeScreen> {
     ['images/photo5940363735635965866.jpg', 'مع خاتم الانبياء', "90", '360']
   ];
   bool visible = true;
-
+@override
+  void initState() {
+    // TODO: implement initState
+  var user = FirebaseAuth.instance.currentUser;
+  if (user == null) {
+    islogin = false;
+  } else {
+    islogin = true;
+  }
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
