@@ -12,7 +12,6 @@ import 'package:mylibrary/modules/login/login.dart';
 import 'package:mylibrary/my_books/view.dart';
 import 'package:mylibrary/rateus/rate.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -21,35 +20,41 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var select1=[
-    'images/bookr1.jpg',
-    'images/bookr2.jpg',
-    'images/bookr3.jpg',
-    'images/bookr4.jpg',
-    'images/bookr5.jpg'
+  List<List>  select1 = [
+    ['images/bookr1.jpg','مبادئ إدارة الاعمال', "100", '200'],
+    ['images/bookr2.jpg','استرتيجية لين لتاسيس لمشروعات', "140", '260'],
+   [ 'images/bookr3.jpg','ماجستير إدارة الأعمال في كتاب', "50", '800'],
+    ['images/bookr4.jpg','ماجستير إدارة الأعمال في يوم واحد', "170", '700'],
+    ['images/bookr5.jpg','إدارة الاعمال بالفطرة', "180", '600'],
   ];
-  var select2=[
-    'images/bookt1.jpg',
-    'images/bookt2.jpg',
-    'images/bookt3.jpg',
-    'images/bookt4.jpg',
-    'images/bookt5.jpg'
+  List<List>  select2 = [
+    ['images/bookt1.jpg','فن اللا مبالااة', "90", '200'],
+   [ 'images/bookt2.jpg','فقط أنصت', "100", '200'],
+    ['images/bookt3.jpg','الثقةوالاعتزاز بالنفس', "400", '780'],
+   [ 'images/bookt4.jpg','نادي الاحتراق النفسي', "100", '200'],
+    ['images/bookt5.jpg','العادات السبع للناس الاكثر فعالية', "30", '100'],
   ];
-  var select3=[
-    'images/booka1.jpg',
-    'images/booka2.jpg',
-    'images/booka3.jpg',
-    'images/booka4.jpg',
-    'images/booka5.jpg'
+  List<List>  select3 = [
+    ['images/booka1.jpg','صاحب الظل الطويل', "150", '200'],
+   [ 'images/booka2.jpg','ليظمئن قلبي ', "90", '80'],
+  [  'images/booka3.jpg', 'أرض زيكولا (اماريتا)', "90", '500'],
+   [ 'images/booka4.jpg','ابتسم فأنت ميت', "100", '500'],
+   [ 'images/booka5.jpg','ما لا نبوح به', "90", '60'],
   ];
-  var select4=[
-    'images/bookt2.jpg',
-    'images/bookt3.jpg',
-    'images/photo5940363735635965803.jpg',
-    'images/photo5940363735635965812.jpg',
-    'images/photo5940363735635965866.jpg',
+  List<List> select4 = [
+    ['images/bookt2.jpg', 'الثقةوالاعتزاز بالنفس', "90", '200'],
+    ['images/bookt3.jpg', 'فقط أنصت', "90", '300'],
+    [
+      'images/photo5940363735635965803.jpg',
+      'المخوفايتة أسفار الظلام',
+      "90",
+      '300'
+    ],
+    ['images/photo5940363735635965812.jpg', 'حدث بالفعل ', "90", '500'],
+    ['images/photo5940363735635965866.jpg', 'مع خاتم الانبياء', "90", '360']
   ];
-  bool visible=true;
+  bool visible = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,11 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
-                  backgroundColor:Color.fromRGBO(168, 146, 84,1) ,
+                  backgroundColor: Color.fromRGBO(168, 146, 84, 1),
                   radius: 55,
                   child: IconButton(
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                     icon: const Icon(Icons.person),
                     iconSize: 100,
                     color: Colors.black45,
@@ -71,102 +75,146 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const LoginScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const LoginScreen()));
                 },
                 child: const Text(
                   "Login",
                   style: TextStyle(fontSize: 30, color: Colors.black),
                 )),
             TextButton(
-              onPressed: (){
+              onPressed: () {
                 setState(() {
-                  visible=!visible;
+                  visible = !visible;
                 });
               },
               child: Row(
-                children:const[
-                  Text("Fields",style: TextStyle(fontSize: 20, color: Colors.black) ),
-                  SizedBox(width: 200,),
+                children: const [
+                  Text("Fields",
+                      style: TextStyle(fontSize: 20, color: Colors.black)),
+                  SizedBox(
+                    width: 200,
+                  ),
                   Icon(Icons.add, color: Colors.black)
                 ],
               ),
             ),
             Visibility(
-              visible: visible,
-                child:Column(
+                visible: visible,
+                child: Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(children:[ TextButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail3()));
-                        },
-                          child: Text('all books',
-                            style: TextStyle(
-                            color: Color.fromRGBO(168, 146, 84,1)
-                          )
-                            ,)
-                      )]),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(children:[
+                      child: Row(children: [
                         TextButton(
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail1()));
-                          },
-                            child: Text('Literature and novels',style: TextStyle(
-                                color: Color.fromRGBO(168, 146, 84,1)
-                            )))]),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(children:[ TextButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail2()));
-                        },
-                          child: Text('human developement',style: TextStyle(
-                              color: Color.fromRGBO(168, 146, 84,1)
-                          )))]),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(children:[ TextButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail3()));
-                        },
-                          child: TextButton(
-                            onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail5 ()));
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Detail3()));
                             },
-                              child: Text('Entrepreneurship',style: TextStyle(
-                                  color: Color.fromRGBO(168, 146, 84,1)
-                              ))))]),
+                            child: Text(
+                              'all books',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(168, 146, 84, 1)),
+                            ))
+                      ]),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(children:[ TextButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail3()));
-                        },
-                          child: Text('Kids',style: TextStyle(
-                              color: Color.fromRGBO(168, 146, 84,1)
-                          )))]),
+                      child: Row(children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Detail1()));
+                            },
+                            child: Text('Literature and novels',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(168, 146, 84, 1))))
+                      ]),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(children:[ TextButton(
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail6()));
-                        },
-                          child: Text('Horror',style: TextStyle(
-                              color: Color.fromRGBO(168, 146, 84,1)
-                          )))]),
+                      child: Row(children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Detail2()));
+                            },
+                            child: Text('human developement',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(168, 146, 84, 1))))
+                      ]),
                     ),
-
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Row(children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Detail3()));
+                            },
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const Detail5()));
+                                },
+                                child: Text('Entrepreneurship',
+                                    style: TextStyle(
+                                        color:
+                                            Color.fromRGBO(168, 146, 84, 1)))))
+                      ]),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Row(children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Detail3()));
+                            },
+                            child: Text('Kids',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(168, 146, 84, 1))))
+                      ]),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Row(children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Detail6()));
+                            },
+                            child: Text('Horror',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(168, 146, 84, 1))))
+                      ]),
+                    ),
                   ],
-                )
-            ),
+                )),
             ListTile(
               title: const Text("Shopping Cart",
                   style: TextStyle(fontSize: 20, color: Colors.black)),
@@ -178,514 +226,656 @@ class _HomeScreenState extends State<HomeScreen> {
                     ));
               },
             ),
-            ListTile(title: const Text("About Us",style: TextStyle(fontSize: 20, color: Colors.black) ),onTap: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutUs(),
-                  ));
-
-            }),
-            ListTile(title:const Text("Rate Us",style: TextStyle(fontSize: 20, color: Colors.black) ),onTap: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => RateUs(),
-                  ));
-
-            }),
-            ListTile(title: const Text("ContacUs",style: TextStyle(fontSize: 20, color: Colors.black) ),onTap: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ContactUsView(),
-                  ));
-            }),
-            ListTile(title: const Text("Notifications",style: TextStyle(fontSize: 20, color: Colors.black) ),onTap: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ContactUsView(),
-                  ));
-            }),
+            ListTile(
+                title: const Text("About Us",
+                    style: TextStyle(fontSize: 20, color: Colors.black)),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AboutUs(),
+                      ));
+                }),
+            ListTile(
+                title: const Text("Rate Us",
+                    style: TextStyle(fontSize: 20, color: Colors.black)),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RateUs(),
+                      ));
+                }),
+            ListTile(
+                title: const Text("ContacUs",
+                    style: TextStyle(fontSize: 20, color: Colors.black)),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ContactUsView(),
+                      ));
+                }),
+            ListTile(
+                title: const Text("Notifications",
+                    style: TextStyle(fontSize: 20, color: Colors.black)),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ContactUsView(),
+                      ));
+                }),
           ],
         ),
       ),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Color.fromRGBO(168, 146, 84,1)),
+        iconTheme: const IconThemeData(color: Color.fromRGBO(168, 146, 84, 1)),
         backgroundColor: Colors.black,
         title: const Text(
           "Flying Books",
-          style: TextStyle(fontSize: 18,color: Color.fromRGBO(168, 146, 84,1)),
+          style:
+              TextStyle(fontSize: 18, color: Color.fromRGBO(168, 146, 84, 1)),
         ),
         centerTitle: true,
-        actions:[
+        actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child:IconButton(icon:const Icon(Icons.bookmarks_sharp,size: 20,color: Color.fromRGBO(168, 146, 84,1),),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> MyBooksView()));
+            child: IconButton(
+              icon: const Icon(
+                Icons.bookmarks_sharp,
+                size: 20,
+                color: Color.fromRGBO(168, 146, 84, 1),
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => MyBooksView()));
               },
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child:IconButton(icon:const Icon(Icons.shopping_cart,size: 23,color: Color.fromRGBO(168, 146, 84,1),),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const CartView()));
+            child: IconButton(
+              icon: const Icon(
+                Icons.shopping_cart,
+                size: 23,
+                color: Color.fromRGBO(168, 146, 84, 1),
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => const CartView()));
               },
             ),
           ),
         ],
       ),
-      body:
-      ListView(
-        physics: const BouncingScrollPhysics(),
-          children:[
-            Padding(
-              padding: const EdgeInsets.all( 18),
-              child: TextField(
-                style: const TextStyle(fontSize: 17),
-                decoration: InputDecoration(
-                  prefixIcon: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.search),
-                    iconSize: 30,
-                    color:const Color.fromRGBO(168, 146, 84,1),
-                  ),
-                  hintText: 'Search',
-                  hintStyle:const TextStyle(
-                      color: Color.fromRGBO(168, 146, 84,1)
-                  ),
-                  border:
-                  OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),borderSide:
-                  const BorderSide(color:Color.fromRGBO(168, 146, 84,1))),//color?
-                )
-              ),
+      body: ListView(physics: const BouncingScrollPhysics(), children: [
+        Padding(
+          padding: const EdgeInsets.all(18),
+          child: TextField(
+              style: const TextStyle(fontSize: 17),
+              decoration: InputDecoration(
+                prefixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search),
+                  iconSize: 30,
+                  color: const Color.fromRGBO(168, 146, 84, 1),
+                ),
+                hintText: 'Search',
+                hintStyle:
+                    const TextStyle(color: Color.fromRGBO(168, 146, 84, 1)),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: const BorderSide(
+                        color: Color.fromRGBO(168, 146, 84, 1))), //color?
+              )),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Row(children: [
+            const SizedBox(
+              width: 40,
             ),
-            const SizedBox(height: 20,),
-            Center(
-              child: Row(
-                  children:[
-                    const SizedBox(width: 40,),
-                    Container(
-                      width: 70,
-                      height: 30,
-                      color: Colors.black,
-                      child: TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail3()));
-                      },
-                          child:const Text('more',style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Color.fromRGBO(168, 146, 84,1)
-                          ),
-                        )
-                      ),
-                    ),
-                    const SizedBox(width: 20,),
-                  const Text('all books',style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Color.fromRGBO(168, 146, 84,1)
-                    ),
-                  ),
-                ]
-              ),
-            ),
-            const SizedBox(height: 20,),
-             SizedBox(
-              height: MediaQuery.of(context).size.height/3,
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                children: [
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select4[0])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select4[2])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select4[1])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select4[4])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select4[3])
-                            )
-                        )
-                    ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(height: 20,),
-            Center(
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
-                    Container(
-                      width: 70,
-                      height: 30,
-                      color: Colors.black,
-                      child: TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail1()));
-                      },
-                          child:const Text('more',style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                              color: Color.fromRGBO(168, 146, 84,1)
-                          ),)
-                      ),
-                    ),
-                    const SizedBox(width: 20,),
-                    const Text('Literature and novels',style: TextStyle(
+            Container(
+              width: 70,
+              height: 30,
+              color: Colors.black,
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Detail3()));
+                  },
+                  child: const Text(
+                    'more',
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Color.fromRGBO(168, 146, 84,1)
-                    ),),
-                  ]),
+                        fontSize: 15,
+                        color: Color.fromRGBO(168, 146, 84, 1)),
+                  )),
             ),
-            const SizedBox(height: 20,),
-            SizedBox(
-              height: MediaQuery.of(context).size.height/3,
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                children: [
-                  InkWell(
-                    onTap: (){
-                       Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DetailsView()));
-                    },
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select1[0])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(select1[2])
-                        )
-                      )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(select1[1])
-                        )
-                      )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(select1[4])
-                        )
-                      )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(select1[3])
-                        )
-                      )
-                    ),
-                  )
-                ],
-              ),
+            const SizedBox(
+              width: 20,
             ),
-            const SizedBox(height: 20,),
-            Center(
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
-                    Container(
-                      width: 70,
-                      height: 30,
-                      color: Colors.black,
-                      child: TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail2()));
-                      },
-                          child:const Text('more',style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                              color: Color.fromRGBO(168, 146, 84,1)
-                          ),
-                        )
-                      ),
-                    ),
-                    const SizedBox(width: 20,),
-                    const Text('human developement',style: TextStyle(
+            const Text(
+              'all books',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color.fromRGBO(168, 146, 84, 1)),
+            ),
+          ]),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height / 3,
+          child: ListView.builder(
+            itemCount: select4.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailsView(number: select4[index][3],
+                              name: select4[index][1],
+                              price: select4[index][2],
+                              img: select4[index][0])));
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 7),
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(select4![index][0]),fit: BoxFit.contain))),
+              );
+            },
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            // children: [
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[0])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[2])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[1])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[4])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[3])
+            //             )
+            //         )
+            //     ),
+            //   )
+            // ],
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              width: 70,
+              height: 30,
+              color: Colors.black,
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Detail1()));
+                  },
+                  child: const Text(
+                    'more',
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Color.fromRGBO(168, 146, 84,1)
-                    ),
-                  ),
-                ]
-              ),
+                        fontSize: 15,
+                        color: Color.fromRGBO(168, 146, 84, 1)),
+                  )),
             ),
-            const SizedBox(height: 20,),
-            SizedBox(
-              height: MediaQuery.of(context).size.height/3,
-              child: ListView(
-                physics:const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                children: [
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select2[0])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select2[2])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select2[1])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select2[4])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){
-                    },
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select2[3])
-                            )
-                        )
-                    ),
-                  )
-                ],
-              ),
+            const SizedBox(
+              width: 20,
             ),
-            const SizedBox(height: 20,),
-            Center(
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
-                    Container(
-                      width: 70,
-                      height: 30,
-                      color: Colors.black,
-                      child: TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Detail5 ()));
-                      },
-                          child:const Text('more',style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                              color: Color.fromRGBO(168, 146, 84,1)
-                          ),)
-                      ),
-                    ),
-                    const SizedBox(width: 20,),
-                    const Text('Entrepreneurship',style: TextStyle(
+            const Text(
+              'Literature and novels',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color.fromRGBO(168, 146, 84, 1)),
+            ),
+          ]),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height / 3,
+          child: ListView.builder(
+            itemCount: select3.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailsView(number: select3[index][3],
+                              name: select3[index][1],
+                              price: select3[index][2],
+                              img: select3[index][0])));
+                },
+                child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 7),
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(select3![index][0]),fit: BoxFit.fill))),
+              );
+            },
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            // children: [
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[0])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[2])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[1])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[4])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[3])
+            //             )
+            //         )
+            //     ),
+            //   )
+            // ],
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              width: 70,
+              height: 30,
+              color: Colors.black,
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Detail2()));
+                  },
+                  child: const Text(
+                    'more',
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Color.fromRGBO(168, 146, 84,1)
-                    ),
-                  ),
-                ]
-              ),
+                        fontSize: 15,
+                        color: Color.fromRGBO(168, 146, 84, 1)),
+                  )),
             ),
-            const SizedBox(height: 20,),
-            SizedBox(
-              height: MediaQuery.of(context).size.height/3,
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                children: [
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select3[0])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select3[2])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select3[1])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select3[4])
-                            )
-                        )
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(select3[3])
-                            )
-                        )
-                    ),
-                  )
-                ],
-              ),
-            )
-          ]
-      ),
+            const SizedBox(
+              width: 20,
+            ),
+            const Text(
+              'human developement',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color.fromRGBO(168, 146, 84, 1)),
+            ),
+          ]),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height / 3,
+          child: ListView.builder(
+            itemCount: select2.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailsView(number: select2[index][3],
+                              name: select2[index][1],
+                              price: select2[index][2],
+                              img: select2[index][0])));
+                },
+                child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 7),
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(select2![index][0]),fit: BoxFit.fill))),
+              );
+            },
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            // children: [
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[0])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[2])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[1])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[4])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[3])
+            //             )
+            //         )
+            //     ),
+            //   )
+            // ],
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              width: 70,
+              height: 30,
+              color: Colors.black,
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Detail5()));
+                  },
+                  child: const Text(
+                    'more',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Color.fromRGBO(168, 146, 84, 1)),
+                  )),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            const Text(
+              'Entrepreneurship',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color.fromRGBO(168, 146, 84, 1)),
+            ),
+          ]),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height / 3,
+          child: ListView.builder(
+            itemCount: select1.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailsView(number: select1[index][3],
+                              name: select1[index][1],
+                              price: select1[index][2],
+                              img: select1[index][0])));
+                },
+                child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 7),
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(select1![index][0]),fit: BoxFit.fill))),
+              );
+            },
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            // children: [
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[0])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[2])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[1])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[4])
+            //             )
+            //         )
+            //     ),
+            //   ),
+            //   const SizedBox(width: 20,),
+            //   InkWell(
+            //     onTap: (){},
+            //     child: Container(
+            //         width: 150,
+            //         height: 150,
+            //         decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //                 image: AssetImage(select4[3])
+            //             )
+            //         )
+            //     ),
+            //   )
+            // ],
+          ),
+        )
+      ]),
     );
   }
-  Widget buildStory(context) => Column(
-    children: [
-      Text(''),
-    ],
-  );
+
+
 }

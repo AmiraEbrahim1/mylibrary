@@ -51,7 +51,7 @@ class _CartViewState extends State<CartView> {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                              text: "EGP 135",
+                              text: "EGP 120",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -115,6 +115,8 @@ class _CartViewState extends State<CartView> {
                           SizedBox(width: 8),
                           Text(
                             "$currentIndex",
+
+
                             // style: TextStyle(color: Colors.white),
                           ),
                           SizedBox(width: 8),
@@ -139,7 +141,6 @@ class _CartViewState extends State<CartView> {
                         ],
                       ),
                     ),
-
                   ],
                 ),
                 Container(
