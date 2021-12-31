@@ -12,6 +12,8 @@ class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // TODO: WRONG Way to define Variables inside WidgetBuild .
+    // TODO: Every Controller Must be disposed after use due to Performance.
     var emailController = TextEditingController();
     var passController = TextEditingController();
     var formKey = GlobalKey<FormState>();//دا اللي هيعمل validate علي ال form كله

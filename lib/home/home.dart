@@ -9,6 +9,7 @@ import 'package:mylibrary/fieldbooks/detail5.dart';
 import 'package:mylibrary/fieldbooks/detail6.dart';
 import 'package:mylibrary/details/details.dart';
 import 'package:mylibrary/modules/login/login.dart';
+import 'package:mylibrary/my_books/view.dart';
 import 'package:mylibrary/rateus/rate.dart';
 
 
@@ -214,6 +215,14 @@ class _HomeScreenState extends State<HomeScreen> {
         actions:[
           const Image(image: AssetImage('images/bg.png')),
           const SizedBox(width: 30,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child:IconButton(icon:const Icon(Icons.bookmarks_sharp,size: 25,color: Color.fromRGBO(168, 146, 84,1),),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> MyBooksView()));
+              },
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child:IconButton(icon:const Icon(Icons.shopping_cart,size: 25,color: Color.fromRGBO(168, 146, 84,1),),

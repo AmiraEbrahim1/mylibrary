@@ -4,8 +4,11 @@ import 'package:mylibrary/cart/cart.dart';
 import 'package:mylibrary/component/components.dart';
 import 'package:mylibrary/modules/paymaent/pay_cubit.dart';
 import 'package:mylibrary/modules/paymaent/pay_states.dart';
+import 'package:mylibrary/pdf/view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class Pay extends StatefulWidget {
-  const Pay({Key? key}) : super(key: key);
+  final int days;
+  const Pay({Key? key, required this.days}) : super(key: key);
 
   @override
   _PayState createState() => _PayState();
@@ -21,7 +24,13 @@ class _PayState extends State<Pay> {
     return BlocProvider(
       create: (context) => PayCubit(),
       child: BlocConsumer<PayCubit,PayStates>(
-        listener: (context,state){},
+        listener: (context,state) async {
+          if(state is PaySuccessState){
+            SharedPreferences _prefs = await SharedPreferences.getInstance();
+            await _prefs.setInt('expireDate', DateTime.now().add(Duration(days: widget.days)).millisecondsSinceEpoch);
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> PDFView()));
+          }
+        },
         builder: (context,state)
         {
           return Scaffold(

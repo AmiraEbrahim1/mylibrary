@@ -9,9 +9,9 @@ class CartView extends StatefulWidget {
   State<CartView> createState() => _CartViewState();
 }
 
-int currentIndex = 0;
 
 class _CartViewState extends State<CartView> {
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -287,7 +287,7 @@ class _CartViewState extends State<CartView> {
               child: Center(
                   child: TextButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Pay()));
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> Pay(days: currentIndex)));
                     },
                     child: Text(
                       "Go to payment",
