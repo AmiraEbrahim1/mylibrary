@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mylibrary/Aaaboutus/about.dart';
 import 'package:mylibrary/cart/cart.dart';
@@ -8,6 +9,7 @@ import 'package:mylibrary/fieldbooks/detail3.dart';
 import 'package:mylibrary/fieldbooks/detail5.dart';
 import 'package:mylibrary/fieldbooks/detail6.dart';
 import 'package:mylibrary/details/details.dart';
+import 'package:mylibrary/main.dart';
 import 'package:mylibrary/modules/login/login.dart';
 import 'package:mylibrary/my_books/view.dart';
 import 'package:mylibrary/rateus/rate.dart';
@@ -73,13 +75,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.black45,
                   )),
             ),
+            islogin  ==true ?
             TextButton(
+                onPressed: () async{
+                  await FirebaseAuth.instance.signOut();
+                  setState(() {
+
+                  });
+                },
+                child: const Text(
+                  "Logout",
+                  style: TextStyle(fontSize: 30, color: Colors.black),
+                )) : TextButton(
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              const LoginScreen()));
+                          const LoginScreen()));
                 },
                 child: const Text(
                   "Login",

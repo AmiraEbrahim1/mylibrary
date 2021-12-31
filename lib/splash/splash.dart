@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mylibrary/contactus/contactus.dart';
 import 'package:mylibrary/home/home.dart';
 import 'package:mylibrary/rateus/rate.dart';
 class SplashScreen extends StatefulWidget {
